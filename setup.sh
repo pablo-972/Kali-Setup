@@ -5,7 +5,7 @@ echo -e "\e[33mSETUP FOR KALI LINUX ~\e[0m";
 apt update; apt upgrade;
 
 #ZSH
-curl https://raw.githubusercontent.com/pablo-972/Scripts/refs/heads/main/Kali%20Setup/.zshrc > ~/.zshrc
+curl https://raw.githubusercontent.com/pablo-972/Kali-Setup/refs/heads/main/.zshrc > ~/.zshrc
 
 #DIRECTORIES
 mkdir ~/Tools;
