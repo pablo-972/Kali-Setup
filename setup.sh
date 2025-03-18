@@ -36,6 +36,17 @@ cd /home/kali/tools/kerbrute;
 go build -ldflags "-s -w" .;
 cd;
 
+#RunasCs
+mkdir /home/kali/tools;
+wget https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip;
+cd /home/kali/tools;
+unzip RunasCs.zip;
+rm RunasCs.zip;
+
+#SharpGPOAbuse
+curl -L -o SharpGPOAbuse.exe https://github.com/byronkg/SharpGPOAbuse/raw/main/SharpGPOAbuse-master/SharpGPOAbuse.exe;
+cd;
+
 #Ghidra
 #apt install ghidra;
 
