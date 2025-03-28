@@ -47,6 +47,12 @@ rm RunasCs.zip;
 curl -L -o SharpGPOAbuse.exe https://github.com/byronkg/SharpGPOAbuse/raw/main/SharpGPOAbuse-master/SharpGPOAbuse.exe;
 cd;
 
+#Bloodhound
+apt install bloodhound -y
+
+#jq
+apt install jq -y
+
 #Ghidra
 #apt install ghidra;
 
