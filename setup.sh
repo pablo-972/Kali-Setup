@@ -1,72 +1,67 @@
 #!/bin/bash
 
-#SETUP FOR KALI LINUX ~
+# SETUP FOR KALI LINUX ~
 echo -e "\e[33mSETUP FOR KALI LINUX ~\e[0m";
 apt update -y && apt upgrade -y;
 
-#ZSH
+
+# ZSH
 cp .zshrc ~
 
-#DIRECTORIES
-mkdir /home/kali/tools;
+
+# DIRECTORIES
 mkdir /home/kali/HTB;
+mkdir /home/kali/tools;
+mdkir /home/kali/tools/SecLists
+mkdir /home/kali/tools/bloodhound
+mkdir /home/kali/tools/windows
+mkdir /home/kali/tools/kerbrute
 
-#TOOLS
-#neovim
+
+# TOOLS
+# neovim
 apt install neovim -y;
-
-#xclip
+# xclip
 apt install xclip -y;
-
-#batcat
+# jq
+apt install jq -y
+# batcat
 apt install bat -y;
-
-#gobuster
+# gobuster
 apt install gobuster -y;
-
-#SecLists
-mdkir /home/kali/tools/seclists;
-git clone https://github.com/danielmiessler/SecLists.git /home/kali/tools/seclists;
-
-#Kerbrute
-mkdir /home/kali/tools/kerbrute;
+# SecLists
+git clone https://github.com/danielmiessler/SecLists.git /home/kali/tools/SecLists;
+# Bloodhound
+curl -L https://ghst.ly/getbhce > /home/kali/tools/bloodhound/docker-compose.yml # To execute: docker pull &&  docker compose up
+# Kerbrute
 git clone https://github.com/ropnop/kerbrute.git /home/kali/tools/kerbrute;
 apt install golang-go -y;
 cd /home/kali/tools/kerbrute;
 go build -ldflags "-s -w" .;
-cd;
-
-#RunasCs
-mkdir /home/kali/tools;
+# RunasCs
+cd /home/kali/tools/windows;
 wget https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip;
-cd /home/kali/tools;
 unzip RunasCs.zip;
 rm RunasCs.zip;
-
-#SharpGPOAbuse
+# SharpGPOAbuse
 curl -L -o SharpGPOAbuse.exe https://github.com/byronkg/SharpGPOAbuse/raw/main/SharpGPOAbuse-master/SharpGPOAbuse.exe;
-cd;
-
-#Bloodhound
-apt install bloodhound -y
-
-#jq
-apt install jq -y
-
+# PKINIT && Pywhisker
+git clone https://github.com/dirkjanm/PKINITtools && git clone https://github.com/ShutdownRepo/pywhisker
 #Ghidra
 #apt install ghidra;
+
 
 #APPS
 #Visual Studio Code
 wget -O code.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64';
 dpkg -i code.deb;
 rm code.deb;
-
 #Protonvpn
 #wget https://repo.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.4_all.deb;
 #sudo dpkg -i ./protonvpn-stable-release_1.0.4_all.deb && sudo apt update;
 #sudo apt install proton-vpn-gnome-desktop;
 #rm protonvpn-stable-release_1.0.4_all.deb;
+
 
 echo -e "\e[31mSETUP FINISHED!! ENJOY ;)\e[0m";
 
